@@ -1,0 +1,153 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .hearts{
+            position: fixed;
+            bottom: 0;
+            left:0;
+            animation: fall 2s ease-in infinite;
+        }
+
+        @keyframes fall {
+            to{
+                transform: translateY(-350%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3> ANIMATION </h3>
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <lord-icon
+            src="https://cdn.lordicon.com/igciyimj.json"
+            trigger="hover"
+            style="width:40px;height:40px">
+        </lord-icon>
+    </div>
+
+    <script>
+        function hearts(){
+            const container = document.querySelector('.container');
+            const new_icon = document.createElement('div');
+            new_icon.classList.add('hearts');
+            new_icon.innerHTML = `
+                  <lord-icon src="https://cdn.lordicon.com/igciyimj.json" trigger="hover"
+                                    style="width:40px;height:40px">
+                                </lord-icon>`;
+            new_icon.style.left = Math.random()*100 + 'vw';
+            container.appendChild(new_icon)
+ 
+        // Stop the animation after 3 seconds
+        setTimeout(() => {
+            new_icon.style.animation = 'none';
+        }, 3000);
+    }
+
+    // Start the interval
+    const intervalId = setInterval(() => {
+        hearts();
+    }, 100);
+
+    // Stop calling the function after 3 seconds
+    setTimeout(() => {
+        clearInterval(intervalId);
+        const heartsElements = document.querySelectorAll('.hearts');
+        heartsElements.forEach(heart => {
+            heart.style.display = 'none';
+        });
+    }, 3000);
+</script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .hearts {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            animation: fall 2s ease-in infinite;
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(-450%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3> ANIMATION </h3>
+        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <lord-icon src="https://cdn.lordicon.com/igciyimj.json" trigger="hover" style="width:40px;height:40px">
+        </lord-icon>
+    </div>
+
+    <script>
+        function hearts() {
+            const container = document.querySelector('.container');
+            const new_icon = document.createElement('div');
+            new_icon.classList.add('hearts');
+            new_icon.innerHTML = `
+                  <lord-icon src="https://cdn.lordicon.com/igciyimj.json" trigger="hover"
+                                    style="width:40px;height:40px">
+                                </lord-icon>`;
+            new_icon.style.left = Math.random() * 100 + 'vw';
+            container.appendChild(new_icon)
+
+            // Fade out the element after 2 seconds
+            setTimeout(() => {
+                new_icon.style.opacity = '0';
+            }, 500);
+
+            // Remove the element from the DOM after the transition ends
+            new_icon.addEventListener('transitionend', () => {
+                container.removeChild(new_icon);
+            });
+        }
+
+        // Start the interval
+        const intervalId = setInterval(() => {
+            hearts();
+        }, 100);
+
+        // Stop calling the function after 3 seconds
+        setTimeout(() => {
+            clearInterval(intervalId);
+        }, 3000);
+    </script>
+</body>
+
+</html>

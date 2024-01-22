@@ -1,0 +1,10 @@
+.explore{
+    background-color: rgb(235, 238, 242);
+}
+
+.exploreimage1{
+    width: 350px;
+    height: 300px;
+    margin: 20px;
+    object-fit: cover;
+}

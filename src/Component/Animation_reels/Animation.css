@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hearts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  animation: fall 2s ease-in infinite;
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(-450%);
+  }
+}
